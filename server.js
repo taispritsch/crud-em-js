@@ -26,6 +26,9 @@ connection.connect((error) => {
   }
 });
 
+// Rota para listar os livros 
+app.get('/listarLivros', LivroController.listarLivros);
+
 // Rota para exibir o formulário de adicionar um autor
 app.get('/adicionarAutor', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'adicionarAutor.html'));
@@ -33,9 +36,6 @@ app.get('/adicionarAutor', (req, res) => {
 
 // Rota para adicionar um autor
 app.post('/criarAutor', AutorController.adicionarAutor);
-
-// Rota para listar os livros - NAO ESTA SENDO USADA NO MOMENTO
-app.get('/listarLivros', LivroController.listarLivros);
 
 // Rota para listar os autores
 app.get('/listarAutores', AutorController.listarAutores);
