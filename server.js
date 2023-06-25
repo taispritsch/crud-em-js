@@ -34,7 +34,7 @@ app.get('/adicionarAutor', (req, res) => {
 // Rota para adicionar um autor
 app.post('/criarAutor', AutorController.adicionarAutor);
 
-// Rota para listar os livros
+// Rota para listar os livros - NAO ESTA SENDO USADA NO MOMENTO
 app.get('/listarLivros', LivroController.listarLivros);
 
 // Rota para listar os autores
