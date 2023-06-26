@@ -26,12 +26,37 @@ connection.connect((error) => {
   }
 });
 
+//ROTAS DOS LIVROS
+
 // Rota para listar os livros 
 app.get('/listarLivros', LivroController.listarLivros);
 
+// Rota para exibir o formulário de adicionar um livro
+app.get('/adicionarLivro', (req, res) => {
+  const filePath = path.join(__dirname, 'public', 'adicionarLivro.html');
+  res.sendFile(filePath);
+});
+
+// Rota para adicionar um livro
+app.post('/criarLivro', LivroController.adicionarLivro);
+
+// Rota para editar um livro
+app.get('/editarLivro/:id', LivroController.editarLivro);
+
+// Rota para atualizar um livro
+app.post('/atualizarLivro/:id', LivroController.atualizarLivro);
+
+// Rota para excluir um livro
+app.get('/excluirLivro/:id', LivroController.excluirLivro);
+
+
+
+//ROTAS DOS AUTORES
+
 // Rota para exibir o formulário de adicionar um autor
 app.get('/adicionarAutor', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'adicionarAutor.html'));
+  const filePath = path.join(__dirname, 'public', 'adicionarAutor.html');
+  res.sendFile(filePath);
 });
 
 // Rota para adicionar um autor
@@ -48,6 +73,9 @@ app.post('/atualizarAutor/:id', AutorController.atualizarAutor);
 
 // Rota para excluir um autor
 app.get('/excluirAutor/:id', AutorController.excluirAutor);
+
+// Rota para listar os livros de um autor
+app.get('/livrosPorAutor/:autorId', AutorController.listarLivrosPorAutor);
 
 
 // Iniciar o servidor

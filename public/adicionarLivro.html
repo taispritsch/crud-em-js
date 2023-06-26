@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Adicionar Livro</title>
+</head>
+<body>
+  <h1>Adicionar Livro</h1>
+  <form action="/criarLivro" method="POST">
+    <label for="titulo">Título:</label>
+    <input type="text" name="titulo" id="titulo"><br>
+
+    <label for="editora">Editora:</label>
+    <input type="text" name="editora" id="editora"><br>
+
+    <label for="qtdExemplar">Quantidade de Exemplar:</label>
+    <input type="number" name="qtdExemplar" id="qtdExemplar"><br>
+
+    <label for="autor_id">Autor ID:</label>
+    <input type="number" name="autor_id" id="autor_id"><br>
+
+    <button type="submit">Adicionar</button>
+  </form>
+</body>
+</html>

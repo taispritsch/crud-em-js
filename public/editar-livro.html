@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Editar Livro</title>
+</head>
+<body>
+  <h1>Editar Livro</h1>
+
+  <form id="editar-livro-form" action="/editarLivro/<%= livro.codLivro %>" method="PUT">
+    <label for="titulo">Titulo:</label>
+    <input type="text" id="titulo" name="titulo" required>
+
+    <label for="editora">Editora:</label>
+    <input type="text" id="editora" name="editora" required>
+
+    <label for="qtdExemplar">Quantidade Exemplar:</label>
+    <input type="number" id="qtdExemplar" name="qtdExemplar" required>
+
+    <label for="autor_id">Autor ID:</label>
+    <input type="number" id="autor_id" name="autor_id" required>
+
+    <button type="submit">Salvar</button>
+  </form>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const titulo = urlParams.get('titulo');
+      const editora = urlParams.get('editora');
+      const qtdExemplar = urlParams.get('qtdExemplar');
+      const autor_id = urlParams.get('autor_id');
+
+      const tituloInput = document.getElementById('titulo');
+      const editoraInput = document.getElementById('editora');
+      const qtdExemplarInput = document.getElementById('qtdExemplar');
+      const autorIdInput = document.getElementById('autor_id');
+
+      tituloInput.value = titulo;
+      editoraInput.value = editora;
+      qtdExemplarInput.value = qtdExemplar;
+      autorIdInput.value = autor_id;
+    });
+  </script>
+</body>
+</html>
