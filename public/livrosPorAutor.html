@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Livros por Autor</title>
+</head>
+<body>
+  <h1>Livros do Autor</h1>
+
+  <div id="livros-lista"></div>
+
+  <script>
+    // Extrair o autorId da URL atual
+    const urlParams = new URLSearchParams(window.location.search);
+    const autorId = urlParams.get('autorId');
+
+    // Fazer uma requisição GET para obter a lista de livros do autor do servidor
+    fetch(`/livrosPorAutor/${autorId}`)
+      .then(response => response.text())
+      .then(data => {
+        const livrosLista = document.getElementById('livros-lista');
+        livrosLista.innerHTML = data;
+      })
+      .catch(error => {
+        console.error('Ocorreu um erro ao obter a lista de livros do autor:', error);
+      });
+  </script>
+</body>
+</html>

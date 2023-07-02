@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Editar Autor</title>
+</head>
+<body>
+  <h1>Editar Autor</h1>
+
+  <form id="editar-autor-form" action="/editarAutor/<%= autor.id %>" method="PUT">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" required>
+
+    <label for="nacionalidade">Nacionalidade:</label>
+    <input type="text" id="nacionalidade" name="nacionalidade" required>
+
+    <button type="submit">Salvar</button>
+  </form>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const nome = urlParams.get('nome');
+      const nacionalidade = urlParams.get('nacionalidade');
+
+      const nomeInput = document.getElementById('nome');
+      const nacionalidadeInput = document.getElementById('nacionalidade');
+
+      nomeInput.value = nome;
+      nacionalidadeInput.value = nacionalidade;
+    });
+  </script>
+</body>
+</html>
