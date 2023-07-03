@@ -109,7 +109,13 @@ const editDelete = (event) => {
 
         if (action == 'edit') {
             editClient(tela_autor)
-        } else {
+
+        } else if(action == 'troca'){
+
+            window.location.href = "./tela_livro.html"
+            }
+
+            else {
             const client = readClient()[tela_autor]
             const response = confirm(`Deseja realmente excluir o cliente ${client.nome}`)
             if (response) {
